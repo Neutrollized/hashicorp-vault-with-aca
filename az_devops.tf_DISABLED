@@ -1,0 +1,31 @@
+# NOTE: requires an Azure DevOps organization to be created first
+# https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops
+# https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/project
+resource "azuredevops_project" "vault-project" {
+  name            = "vault"
+  description     = "HashiCorp Vault on Azure Container Apps"
+  visibility      = "private"
+  version_control = "Git"
+
+  features = {
+    "boards"       = "disabled"
+    "repositories" = "disabled"
+    "pipelines"    = "enabled"
+    "testplans"    = "disabled"
+    "artifacts"    = "disabled"
+  }
+}
+
+#-------------------------
+# Service Connections
+#-------------------------
+# https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_github
+#resource "azuredevops_serviceendpoint_github" "neutrollized" {
+#  project_id            = azuredevops_project.vault-project.id
+#  service_endpoint_name = "GitHub Personal Access Token"
+#  description           = "Managed by Terraform"
+#
+#  auth_personal {
+#    # Set with AZDO_GITHUB_SERVICE_CONNECTION_PAT environment variable
+#  }
+#}

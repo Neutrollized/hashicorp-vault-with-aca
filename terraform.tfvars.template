@@ -1,0 +1,6 @@
+location      = "westus2"
+vault_version = "1.13.1"
+
+autounseal_sp_client_id = "abcdefgh-1234-4567-7890-ijklmnopqrst"
+autounseal_sp_secret_id = "afldsjsalRfjlg4jlZZsDxAbdhlfjadIGFFjfdkf"
+autounseal_sp_object_id = "zyxwvuts-0987-7654-4321-lkjihgfedcba"
